@@ -3,5 +3,5 @@ torchvision
 tqdm
 numpy
 scipy
-PIL
+pillow==6.2.0
 
