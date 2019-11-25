@@ -31,7 +31,7 @@ test_dataset = ImageNet(
 
 test_loader = DataLoader(
     test_dataset,
-    batch_size=128,
+    batch_size=64,
     shuffle=False,
     num_workers=4,
     pin_memory=True,
