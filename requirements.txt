@@ -5,4 +5,5 @@ tqdm
 numpy
 scipy
 pillow==6.2.0
+efficientnet_pytorch
 
