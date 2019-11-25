@@ -16,9 +16,7 @@ model_name = 'efficientnet-b4'
 model = EfficientNet.from_pretrained(model_name)
 
 input_transform = transforms.Compose([
-    transforms.Resize(256, PIL.Image.BICUBIC),
-    transforms.CenterCrop(224),
-    transforms.ToTensor(),
+    transforms.Resize(224), transforms.ToTensor(),
     transforms.Normalize(
     mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),
 ])
@@ -33,7 +31,7 @@ test_dataset = ImageNet(
 
 test_loader = DataLoader(
     test_dataset,
-    batch_size=128,
+    batch_size=64,
     shuffle=False,
     num_workers=4,
     pin_memory=True,

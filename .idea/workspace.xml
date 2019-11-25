@@ -3,6 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="b6c6b6f7-b3e5-47b1-871a-df6985c3cb82" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sotabench.py" beforeDir="false" afterPath="$PROJECT_DIR$/sotabench_pytorch.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sotabench_keras.py" beforeDir="false" afterPath="$PROJECT_DIR$/sotabench_keras.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -33,6 +36,11 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -57,6 +65,7 @@
       <updated>1574695494767</updated>
       <workItem from="1574695495997" duration="291000" />
       <workItem from="1574695792991" duration="1262000" />
+      <workItem from="1574697553914" duration="1241000" />
     </task>
     <servers />
   </component>
