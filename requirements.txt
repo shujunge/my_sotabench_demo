@@ -2,4 +2,6 @@ torch
 torchvision
 tqdm
 numpy
+scipy
+PIL
 
