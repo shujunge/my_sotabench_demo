@@ -12,7 +12,7 @@ if is_server():
 else: # local settings
     DATA_ROOT = '/home/ubuntu/my_data/'
 
-model_name = 'efficientnet-b5'
+model_name = 'efficientnet-b4'
 model = EfficientNet.from_pretrained(model_name)
 
 input_transform = transforms.Compose([
