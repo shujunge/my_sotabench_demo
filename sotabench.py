@@ -38,8 +38,6 @@ test_loader = DataLoader(
     pin_memory=True,
 )
 
-model = model.cuda()
-model.eval()
 
 evaluator = ImageNetEvaluator(
                  model_name= model_name,
