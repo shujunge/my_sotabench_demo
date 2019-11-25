@@ -1,7 +1,6 @@
 import PIL
 import torch
 from torch.utils.data import DataLoader
-from torchvision.models.resnet import resnext101_32x8d
 import torchvision.transforms as transforms
 from torchvision.datasets import ImageNet
 from my_Imagenet import ImageNetEvaluator
@@ -13,8 +12,8 @@ if is_server():
 else: # local settings
     DATA_ROOT = '/home/ubuntu/my_data/'
 
-
-model = EfficientNet.from_pretrained('efficientnet-b7')
+model_name = 'efficientnet-b5'
+model = EfficientNet.from_pretrained(model_name)
 
 input_transform = transforms.Compose([
     transforms.Resize(256, PIL.Image.BICUBIC),
@@ -44,7 +43,7 @@ model = model.cuda()
 model.eval()
 
 evaluator = ImageNetEvaluator(
-                 model_name='efficientnet-b7',
+                 model_name= model_name,
                  paper_arxiv_id='1611.05431')
 
 def get_img_id(image_name):
