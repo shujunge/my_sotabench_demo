@@ -51,10 +51,10 @@ def get_img_id(image_name):
     return image_name.split('/')[-1].replace('.JPEG', '')
 
 with torch.no_grad():
-    for i, (input, target) in enumerate(test_loader):
-        input = input.to(device='cuda', non_blocking=True)
+    for i, (images, target) in enumerate(test_loader):
+        images = images.to(device='cuda', non_blocking=True)
         target = target.to(device='cuda', non_blocking=True)
-        output = model(input
+        output = model(images)
         image_ids = [get_img_id(img[0]) for img in test_loader.dataset.imgs[i*test_loader.batch_size:(i+1)*test_loader.batch_size]]
         evaluator.add(dict(zip(image_ids, list(output.cpu().numpy()))))
 
