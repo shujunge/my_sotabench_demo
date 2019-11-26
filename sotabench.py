@@ -5,9 +5,7 @@ import torchvision.transforms as transforms
 from torchvision.datasets import ImageNet
 from my_Imagenet import ImageNetEvaluator
 from sotabencheval.utils import is_server
-import efficientnet.keras as efn
-
-model = efn.EfficientNetB4(weights='imagenet')
+from efficientnet_pytorch import EfficientNet
 
 if is_server():
     DATA_ROOT = './.data/vision/imagenet'
@@ -15,11 +13,11 @@ else: # local settings
     DATA_ROOT = '/home/ubuntu/my_data/'
 
 model_name = 'efficientnet-b4'
+model = EfficientNet.from_pretrained(model_name)
 
 input_transform = transforms.Compose([
     transforms.Resize(224), transforms.ToTensor(),
-    transforms.Normalize(
-    mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),
+    transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
 ])
 
 test_dataset = ImageNet(
@@ -38,6 +36,8 @@ test_loader = DataLoader(
     pin_memory=True,
 )
 
+model = model.cuda()
+model.eval()
 
 evaluator = ImageNetEvaluator(
                  model_name= model_name,
@@ -48,8 +48,9 @@ def get_img_id(image_name):
 
 with torch.no_grad():
     for i, (input, target) in enumerate(test_loader):
-        images = input.numpy()
-        output = model.predict(images)
+        input = input.to(device='cuda', non_blocking=True)
+        target = target.to(device='cuda', non_blocking=True)
+        output = model(input)
         image_ids = [get_img_id(img[0]) for img in test_loader.dataset.imgs[i*test_loader.batch_size:(i+1)*test_loader.batch_size]]
         evaluator.add(dict(zip(image_ids, list(output.cpu().numpy()))))
 
