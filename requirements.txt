@@ -4,6 +4,6 @@ torchvision==0.4.0
 tqdm
 numpy
 scipy
-pillow==6.2.0
+pillow==10.0.1
 efficientnet_pytorch
 
